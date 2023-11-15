@@ -18,6 +18,8 @@ class App {
 
     const complimentary = Discount.complimentaryEvent(totalPrice);
     OutputView.printComplimentary(complimentary);
+
+    OutputView.printDiscoutListName();
   };
 
 

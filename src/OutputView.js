@@ -21,7 +21,11 @@ const OutputView = {
     },
 
     printComplimentary(complimentary) {
-        MissionUtils.Console.print(`\n<증정 메뉴>\n${complimentary}`);
+        MissionUtils.Console.print(`\n<증정 메뉴>\n${complimentary[0]}`);
+    },
+
+    printDiscoutListName() {
+        MissionUtils.Console.print(`\n<혜택 내역>`)
     },
 }
 export default OutputView;
