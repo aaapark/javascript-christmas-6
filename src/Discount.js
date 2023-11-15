@@ -7,6 +7,7 @@ const Discount = {
         if(price >= 10000) {
             discountList.push(this.chirstmasDdayDiscount(date));
             discountList.push(this.weekdayDiscount(date,menuList));
+            discountList.push(this.weekendDiscount(date,menuList));
             discountList.push(this.complimentaryEvent(price)[1]);
         }
         return discountList;
@@ -32,6 +33,20 @@ const Discount = {
             return sum + curVal
         }, 0);
         return 2023 * sumOfWeekdayEventDiscount
+    },
+    
+    weekendDiscount(date, menuList) {
+        const WEEKENDDAYS = DAYS.makeWeekendDays()
+        const validWeeknedDayEvent = menuList.map((menu) => {
+            if(WEEKENDDAYS.includes(date) && Object.keys(MENU_LIST.MENU_MAIN).includes(menu.name)) {
+                return Number(menu.amount)
+            }
+        });
+        let newValidWeekendDayEvent = validWeeknedDayEvent.filter((element) => element !== undefined);
+        const sumOfWeekendDayEventDiscount = newValidWeekendDayEvent.reduce((sum,curVal) => {
+            return sum + curVal
+        }, 0);
+        return 2023 * sumOfWeekendDayEventDiscount
     },
 
     complimentaryEvent(price) {
