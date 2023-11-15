@@ -22,7 +22,7 @@ export const MENU_LIST = {
          '레드와인': 60000,
          '샴페인': 25000,
      },
- }
+ };
  
 export const ALL_MENU_LIST = Object.assign(
     {},
@@ -58,4 +58,12 @@ export const DAYS = {
          STARDAYS.push(25);
          return STARDAYS;
      },
-}  
+}; 
+
+export const EVENTNAME = [
+    '크리스마스 디데이 할인:',
+    '평일 할인:',
+    '주말 할인:',
+    '특별 할인:',
+    '증정 이벤트:',
+]

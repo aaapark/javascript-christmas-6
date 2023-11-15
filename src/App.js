@@ -21,7 +21,7 @@ class App {
 
     OutputView.printDiscoutListName();
     const discoutList = Control.calculateDiscount(Number(userVisitDay),userOrderMenu,totalPrice);
-    console.log(discoutList);
+    OutputView.printDiscoutList(discoutList);
   };
 
 

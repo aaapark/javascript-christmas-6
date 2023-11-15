@@ -1,4 +1,5 @@
 import { MissionUtils } from "@woowacourse/mission-utils";
+import { EVENTNAME } from './const.js'
 
 const OutputView = {
     printGreeting() {
@@ -26,6 +27,14 @@ const OutputView = {
 
     printDiscoutListName() {
         MissionUtils.Console.print(`\n<혜택 내역>`)
+    },
+
+    printDiscoutList(discountList) {
+        discountList.forEach((e) => {
+            if(e !== 0 && e !== undefined) {
+                MissionUtils.Console.print(`${EVENTNAME[discountList.indexOf(e)]} -${e.toLocaleString()}원`)
+            };
+        })
     },
 }
 export default OutputView;
