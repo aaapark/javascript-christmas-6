@@ -26,6 +26,9 @@ class App {
     const allDiscount = Control.calculateAllDisount(discoutList);
     OutputView.printSumOfDiscount(allDiscount);
 
+    const finalPrice = totalPrice - allDiscount;
+    OutputView.printFinalPrice(finalPrice);
+
   };
 
 

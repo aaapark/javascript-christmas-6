@@ -45,6 +45,10 @@ const OutputView = {
         MissionUtils.Console.print(`\n<총혜택 금액>\n${newSum}원`)
     },
 
+    printFinalPrice(sum) {
+        MissionUtils.Console.print(`\n<할인 후 예상 결제 금액>\n${sum.toLocaleString()}원`)
+    },
+    
     printNothing() {
         MissionUtils.Console.print('없음')
     },
