@@ -34,11 +34,13 @@ export const ALL_MENU_LIST = Object.assign(
 
 export const DAYS = {
      makeWeekdays() {
-         let WEEKDAY = [4,5,6,7]
+         let WEEKDAY = [3,4,5,6,7]
          let WEEKDAYS = []
          for(let i = 0 ; i < 4 ; i++) {
              WEEKDAY.map((e) => {WEEKDAYS.push(e+7*(i))})
-         } return WEEKDAYS;
+         };
+         WEEKDAYS.push(31);
+         return WEEKDAYS;
      },
  
      makeWeekendDays() {
