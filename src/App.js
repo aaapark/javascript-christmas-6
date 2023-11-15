@@ -9,6 +9,7 @@ class App {
     OutputView.printGreeting();
     const userVisitDay = await this.readUserVisitDate();
     const userOrderMenu = await this.readUserOrderMenuList();
+    OutputView.printPreviewMent(userVisitDay);
   }
 
   async readUserVisitDate() {
