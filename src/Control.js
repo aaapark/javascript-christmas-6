@@ -2,7 +2,6 @@ import Menu from './Menu.js'
 import { ALL_MENU_LIST } from "./const.js";
 import Discount from "./Discount.js";
 
-
 const Control = {
 
     getUserMenuList(splittedOrder) {
@@ -21,6 +20,14 @@ const Control = {
 
     calculateDiscount(date,menuList,price) {
         return Discount.checkValidDiscountEvent(date,menuList,price)
+    },
+
+    calculateAllDisount(discountList) {
+        let allDiscount = discountList.filter((item) => item !== undefined);
+        const sumOfDiscount = allDiscount.reduce((sum,curVal) => {
+          return sum + curVal
+        }, 0)
+        return sumOfDiscount
     },
 
 }

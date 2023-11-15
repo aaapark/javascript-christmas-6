@@ -22,6 +22,10 @@ class App {
     OutputView.printDiscoutListName();
     const discoutList = Validation.checkValidArrayElement(Control.calculateDiscount(Number(userVisitDay),userOrderMenu,totalPrice));
     OutputView.printDiscoutList(discoutList);
+
+    const allDiscount = Control.calculateAllDisount(discoutList);
+    OutputView.printSumOfDiscount(allDiscount);
+
   };
 
 

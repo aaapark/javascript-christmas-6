@@ -37,6 +37,14 @@ const OutputView = {
         })
     },
 
+    printSumOfDiscount(sum) {
+        let newSum = sum
+        if (sum !== 0) {
+            newSum = `-${sum.toLocaleString()}`
+        }
+        MissionUtils.Console.print(`\n<총혜택 금액>\n${newSum}원`)
+    },
+
     printNothing() {
         MissionUtils.Console.print('없음')
     },
