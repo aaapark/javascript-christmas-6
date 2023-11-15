@@ -15,5 +15,10 @@ const OutputView = {
             MissionUtils.Console.print(`${menu.name} ${menu.amount}개`);
         });
     },
+
+    printTotalPriceBeforeDiscount(price) {
+        MissionUtils.Console.print(`\n<할인 전 총주문 금액>\n${price.toLocaleString()}원`);
+    },
+
 }
 export default OutputView;

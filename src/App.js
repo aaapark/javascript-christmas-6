@@ -11,6 +11,8 @@ class App {
     const userOrderMenu = await this.readUserOrderMenuList();
     OutputView.printPreviewMent(userVisitDay);
     OutputView.printMenuList(userOrderMenu);
+    const totalPrice = Control.calculateTotalPriceBeforeDiscount(userOrderMenu);
+    OutputView.printTotalPriceBeforeDiscount(totalPrice);
   }
 
   async readUserVisitDate() {
