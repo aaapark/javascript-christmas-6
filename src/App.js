@@ -3,6 +3,7 @@ import OutputView from "./OutputView.js";
 import InputView from "./InputView.js";
 import Validation from './Validate.js'
 import Control from "./Control.js";
+import Discount from "./Discount.js";
 
 class App {
   async run() {
@@ -11,9 +12,14 @@ class App {
     const userOrderMenu = await this.readUserOrderMenuList();
     OutputView.printPreviewMent(userVisitDay);
     OutputView.printMenuList(userOrderMenu);
+
     const totalPrice = Control.calculateTotalPriceBeforeDiscount(userOrderMenu);
     OutputView.printTotalPriceBeforeDiscount(totalPrice);
-  }
+
+    const complimentary = Discount.complimentaryEvent(totalPrice);
+    OutputView.printComplimentary(complimentary);
+  };
+
 
   async readUserVisitDate() {
     try {

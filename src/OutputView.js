@@ -20,5 +20,8 @@ const OutputView = {
         MissionUtils.Console.print(`\n<할인 전 총주문 금액>\n${price.toLocaleString()}원`);
     },
 
+    printComplimentary(complimentary) {
+        MissionUtils.Console.print(`\n<증정 메뉴>\n${complimentary}`);
+    },
 }
 export default OutputView;
