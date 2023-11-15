@@ -5,7 +5,7 @@ class App {
   async run() {
     OutputView.printGreeting();
     const userVisitDay = await InputView.readDate();
-
+    const userOrderMenu = await InputView.readMenu();
   }
 }
 
