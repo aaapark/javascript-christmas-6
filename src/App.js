@@ -20,6 +20,8 @@ class App {
     OutputView.printComplimentary(complimentary);
 
     OutputView.printDiscoutListName();
+    const discoutList = Control.calculateDiscount(Number(userVisitDay),userOrderMenu,totalPrice);
+    console.log(discoutList);
   };
 
 
