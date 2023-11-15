@@ -3,37 +3,52 @@ import OutputView from "./OutputView.js";
 import InputView from "./InputView.js";
 import Validation from './Validate.js'
 import Control from "./Control.js";
-import Discount from "./Discount.js";
+import Discount from './Discount.js'
+
 
 class App {
   async run() {
     OutputView.printGreeting();
     const userVisitDay = await this.readUserVisitDate();
     const userOrderMenu = await this.readUserOrderMenuList();
-    OutputView.printPreviewMent(userVisitDay);
-    OutputView.printMenuList(userOrderMenu);
 
-    const totalPrice = Control.calculateTotalPriceBeforeDiscount(userOrderMenu);
+    this.printOrderList(userVisitDay,userOrderMenu);
+    const beforePrice = this.printTotalPriceBeforeDiscount(userOrderMenu);
+    const discountLists = this.printEventList(userVisitDay,userOrderMenu,beforePrice);
+    this.printResultOfDiscount(discountLists,beforePrice);
+  };
+
+  printOrderList(date,order) {
+    OutputView.printPreviewMent(date);
+    OutputView.printMenuList(order);
+  };
+
+  printTotalPriceBeforeDiscount(order) {
+    const totalPrice = Control.calculateTotalPriceBeforeDiscount(order);
     OutputView.printTotalPriceBeforeDiscount(totalPrice);
+    return totalPrice;  
+  };
 
-    const complimentary = Discount.complimentaryEvent(totalPrice);
+  printEventList(date,order,price) {
+    const complimentary = Discount.complimentaryEvent(price);
     OutputView.printComplimentary(complimentary);
 
     OutputView.printDiscoutListName();
-    const discoutList = Validation.checkValidArrayElement(Control.calculateDiscount(Number(userVisitDay),userOrderMenu,totalPrice));
+    const discoutList = Validation.checkValidArrayElement(Control.calculateDiscount(Number(date),order,price));
     OutputView.printDiscoutList(discoutList);
+    return discoutList;
+  };
 
-    const allDiscount = Control.calculateAllDisount(discoutList);
+  printResultOfDiscount(list,price) {
+    const allDiscount = Control.calculateAllDisount(list);
     OutputView.printSumOfDiscount(allDiscount);
 
-    const finalPrice = totalPrice - allDiscount;
+    const finalPrice = price - allDiscount;
     OutputView.printFinalPrice(finalPrice);
 
     const badge = Control.getBadge(allDiscount);
     OutputView.printEventBadge(badge);
-
   };
-
 
   async readUserVisitDate() {
     try {
@@ -43,7 +58,7 @@ class App {
     }catch(e) {
       MissionUtils.Console.print(e.message);
       return await this.readUserVisitDate();
-    }
+    };
   };
 
   async readUserOrderMenuList() {
@@ -59,6 +74,5 @@ class App {
     }
   };
 
-
-};
+}
 export default App;
