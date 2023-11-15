@@ -67,3 +67,9 @@ export const EVENTNAME = [
     '특별 할인:',
     '증정 이벤트:',
 ]
+
+export const BADGE = {
+    5000: "별",
+    10000: '트리',
+    20000: '산타',
+};

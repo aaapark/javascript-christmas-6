@@ -29,6 +29,9 @@ class App {
     const finalPrice = totalPrice - allDiscount;
     OutputView.printFinalPrice(finalPrice);
 
+    const badge = Control.getBadge(allDiscount);
+    OutputView.printEventBadge(badge);
+
   };
 
 

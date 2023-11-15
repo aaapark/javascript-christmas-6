@@ -48,6 +48,10 @@ const OutputView = {
     printFinalPrice(sum) {
         MissionUtils.Console.print(`\n<할인 후 예상 결제 금액>\n${sum.toLocaleString()}원`)
     },
+
+    printEventBadge(badge) {
+        MissionUtils.Console.print(`\n<12월 이벤트 배지>\n${badge}`)
+    },
     
     printNothing() {
         MissionUtils.Console.print('없음')

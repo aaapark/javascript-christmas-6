@@ -1,5 +1,5 @@
 import Menu from './Menu.js'
-import { ALL_MENU_LIST } from "./const.js";
+import { ALL_MENU_LIST,BADGE } from "./const.js";
 import Discount from "./Discount.js";
 
 const Control = {
@@ -28,6 +28,15 @@ const Control = {
           return sum + curVal
         }, 0)
         return sumOfDiscount
+    },
+
+    getBadge(discount) {
+        let badge = ['없음']
+        for(let i=0 ; i < 3 ; i++) {
+            if(discount >= (Object.keys(BADGE)[i])) {
+                badge.push((Object.values(BADGE)[i]))
+            }
+        } return badge.reverse().shift();
     },
 
 }
