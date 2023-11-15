@@ -20,7 +20,7 @@ class App {
     OutputView.printComplimentary(complimentary);
 
     OutputView.printDiscoutListName();
-    const discoutList = Control.calculateDiscount(Number(userVisitDay),userOrderMenu,totalPrice);
+    const discoutList = Validation.checkValidArrayElement(Control.calculateDiscount(Number(userVisitDay),userOrderMenu,totalPrice));
     OutputView.printDiscoutList(discoutList);
   };
 

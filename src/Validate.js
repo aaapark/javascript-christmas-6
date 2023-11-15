@@ -1,4 +1,5 @@
 import {MENU_LIST, ALL_MENU_LIST} from "./const.js"
+import OutputView from "./OutputView.js";
 
 const Validation = {
     //입력 날짜 확인
@@ -80,6 +81,14 @@ const Validation = {
             throw new Error ('[ERROR] 최대 20개까지만 주문 가능합니다.')
         }
         return true;
+    },
+
+    checkValidArrayElement(arr) {
+        let newArr = arr.filter((e) => e !== undefined && e !== 0);
+        if (newArr.length === 0) {
+            OutputView.printNothing()
+        }
+        return arr;
     },
 };
 export default Validation;

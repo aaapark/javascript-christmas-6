@@ -36,5 +36,9 @@ const OutputView = {
             };
         })
     },
+
+    printNothing() {
+        MissionUtils.Console.print('없음')
+    },
 }
 export default OutputView;
