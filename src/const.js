@@ -31,3 +31,31 @@ export const ALL_MENU_LIST = Object.assign(
     MENU_LIST.MENU_DESSERT,
     MENU_LIST.MENU_BEVERAGE
     )
+
+export const DAYS = {
+     makeWeekdays() {
+         let WEEKDAY = [4,5,6,7]
+         let WEEKDAYS = []
+         for(let i = 0 ; i < 4 ; i++) {
+             WEEKDAY.map((e) => {WEEKDAYS.push(e+7*(i))})
+         } return WEEKDAYS;
+     },
+ 
+     makeWeekendDays() {
+         let WEEKEND = [1,2]
+         let WEEKENDDAYS = []
+         for(let i = 0 ; i < 5; i++) {
+             WEEKEND.map((e) => {WEEKENDDAYS.push(e+(7*i))})
+         } return WEEKENDDAYS;
+     },
+     
+     makeStarDays() {
+         let STARDAY = [3]
+         let STARDAYS = []
+         for(let i = 0 ; i < 5; i++) {
+             STARDAY.map((e) => {STARDAYS.push(e+(7*i)) })
+         };
+         STARDAYS.push(25);
+         return STARDAYS;
+     },
+}  
