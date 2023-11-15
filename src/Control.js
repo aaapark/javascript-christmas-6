@@ -35,11 +35,11 @@ const Control = {
       const menuNameList = menu.map((i) => {
         newMenuList.push(i.name)
       })
-      let orderChampagne = 25000
-      if(newMenuList.includes("샴페인") && price >= 120000) {
-        orderChampagne = 0
+      let notOrderChampagne = 0
+      if(!newMenuList.includes("샴페인") && price >= 120000) {
+        notOrderChampagne = 25000
       }
-      return price - allDiscount + orderChampagne
+      return price - allDiscount + notOrderChampagne;
     },
 
     getBadge(discount) {
