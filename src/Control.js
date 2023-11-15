@@ -30,6 +30,18 @@ const Control = {
         return sumOfDiscount
     },
 
+    calculateFinalPrice(price,allDiscount,menu) {
+      const newMenuList = []
+      const menuNameList = menu.map((i) => {
+        newMenuList.push(i.name)
+      })
+      let orderChampagne = 25000
+      if(newMenuList.includes("샴페인") && price >= 120000) {
+        orderChampagne = 0
+      }
+      return price - allDiscount + orderChampagne
+    },
+
     getBadge(discount) {
         let badge = ['없음']
         for(let i=0 ; i < 3 ; i++) {

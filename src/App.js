@@ -15,7 +15,7 @@ class App {
     this.printOrderList(userVisitDay,userOrderMenu);
     const beforePrice = this.printTotalPriceBeforeDiscount(userOrderMenu);
     const discountLists = this.printEventList(userVisitDay,userOrderMenu,beforePrice);
-    this.printResultOfDiscount(discountLists,beforePrice);
+    this.printResultOfDiscount(discountLists,beforePrice,userOrderMenu);
   };
 
   printOrderList(date,order) {
@@ -38,12 +38,12 @@ class App {
     OutputView.printDiscoutList(discoutList);
     return discoutList;
   };
-
-  printResultOfDiscount(list,price) {
+ 
+  printResultOfDiscount(list,price,menu) {
     const allDiscount = Control.calculateAllDisount(list);
     OutputView.printSumOfDiscount(allDiscount);
 
-    const finalPrice = price - allDiscount;
+    const finalPrice = Control.calculateFinalPrice(price,allDiscount,menu)
     OutputView.printFinalPrice(finalPrice);
 
     const badge = Control.getBadge(allDiscount);
