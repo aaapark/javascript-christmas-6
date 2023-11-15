@@ -19,5 +19,9 @@ const Validation = {
         }
         return true;
     },
+
+    checkUserMenuList(menuList) {
+        console.log(menuList);
+    },
 };
 export default Validation;
